@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="four">4dp</dimen>
+    <dimen name="eight">8dp</dimen>
+    <dimen name="sixteen">16dp</dimen>
+    <dimen name="padding_horizontal">12dp</dimen>
+    <dimen name="pointsTextSize">16sp</dimen>
+    <dimen name="forty">40dp</dimen>
+    <dimen name="itemListDescription">18sp</dimen>
+    <dimen name="ItemListTitle">20sp</dimen>
+    <dimen name="itemListImage">98dp</dimen>
+    <dimen name="buttonDetailHeight">64dp</dimen>
+</resources>

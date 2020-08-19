@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Earth quakes</string>
+    <string name="latitude">Lat : </string>
+    <string name="longitude">Long : </string>
+    <string name="depth">Depth : </string>
+    <string name="magnitude">Magnitude : </string>
+    <string name="error">"Ooops that's embarrassing, an error occurred please retry!"</string>
+    <string name="retry">Retry</string>
+</resources>
