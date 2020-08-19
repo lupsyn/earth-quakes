@@ -13,7 +13,7 @@ import com.challange.hilt.R
 import com.challange.hilt.ui.models.EarthQuakesUiModel
 
 
-class MainAdapter(var listener: EarthQuakesUiModelListener) :
+class MainAdapter(private var listener: EarthQuakesUiModelListener) :
     ListAdapter<EarthQuakesUiModel, EarthQuakesUiModelViewHolder>(DiffCallback()) {
 
     override fun onCreateViewHolder(
@@ -82,13 +82,16 @@ private class DiffCallback : DiffUtil.ItemCallback<EarthQuakesUiModel>() {
         oldItem: EarthQuakesUiModel,
         newItem: EarthQuakesUiModel
     ): Boolean {
-        return oldItem.eqid == newItem.eqid
+        return oldItem.eqid == newItem.eqid &&
+                oldItem.datetime == newItem.datetime
     }
 
     override fun areContentsTheSame(
         oldItem: EarthQuakesUiModel,
         newItem: EarthQuakesUiModel
     ): Boolean {
-        return oldItem.eqid == newItem.eqid
+        return oldItem.eqid == newItem.eqid &&
+                oldItem.datetime == newItem.datetime &&
+                oldItem.magnitude == newItem.magnitude
     }
 }
