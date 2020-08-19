@@ -1,8 +1,12 @@
 package com.challange.hilt.di
 
+import android.content.Context
+import androidx.room.Room
 import com.challange.hilt.BuildConfig
 import com.challange.hilt.data.MainRepository
 import com.challange.hilt.data.MainRepositoryImpl
+import com.challange.hilt.data.db.AppDatabase
+import com.challange.hilt.data.db.dao.EarthQuakeDao
 import com.challange.hilt.data.network.Api
 import com.challange.hilt.data.network.ApiImpl
 import com.challange.hilt.data.network.ApiService
@@ -12,6 +16,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,6 +30,23 @@ object AppModule {
     @Singleton
     @Provides
     fun provideIoDispatcher() = Dispatchers.IO
+}
+
+@InstallIn(ApplicationComponent::class)
+@Module
+object DatabaseModule {
+
+    @Provides
+    @Singleton
+    fun provideDatabase(@ApplicationContext context: Context): AppDatabase =
+        Room.databaseBuilder(
+            context,
+            AppDatabase::class.java,
+            "earthQuake.db"
+        ).build()
+
+    @Provides
+    fun provideEarthQuakeDao(database: AppDatabase): EarthQuakeDao = database.earthQuakeDao()
 }
 
 @Module
@@ -50,16 +72,16 @@ object NetworkModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient = if (BuildConfig.DEBUG) {
-            val loggingInterceptor = HttpLoggingInterceptor()
-            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
-            OkHttpClient.Builder()
-                .addInterceptor(loggingInterceptor)
-                .build()
-        } else {
-            OkHttpClient
-                .Builder()
-                .build()
-        }
+        val loggingInterceptor = HttpLoggingInterceptor()
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
+        OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
+    } else {
+        OkHttpClient
+            .Builder()
+            .build()
+    }
 
     @Provides
     @Singleton
