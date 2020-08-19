@@ -1,4 +1,4 @@
-package com.challange.hilt.util
+package com.challange.hilt.util.ext
 
 import androidx.recyclerview.widget.RecyclerView
 

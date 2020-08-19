@@ -44,6 +44,7 @@ buildscript {
         mockitoKotlinVersion = '2.2.0'
         retrofitVersion = '2.9.0'
         okHttpVersion = '4.7.2'
+        googlePlayMapVersion = '17.0.0'
     }
 
 

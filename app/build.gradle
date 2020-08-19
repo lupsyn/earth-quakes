@@ -20,8 +20,6 @@ android {
                 arguments += ["room.incremental": "true"]
             }
         }
-        buildConfigField "String", 'BASE_URL', '"http://api.geonames.org/"'
-        buildConfigField 'String', 'USER_NAME', "\"mkoppelman\""
     }
 
     android {
@@ -38,6 +36,10 @@ android {
 
     buildTypes {
         debug {
+            manifestPlaceholders = [google_map_key: "AIzaSyDPKBuS_gWSsHILIpOksSKwwsO_YXB8EnM"]
+            buildConfigField "String", 'BASE_URL', '"http://api.geonames.org/"'
+            buildConfigField 'String', 'USER_NAME', "\"mkoppelman\""
+
             minifyEnabled false
             testCoverageEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -45,6 +47,10 @@ android {
         }
 
         release {
+            manifestPlaceholders = [google_map_key: "AIzaSyDPKBuS_gWSsHILIpOksSKwwsO_YXB8EnM"]
+            buildConfigField "String", 'BASE_URL', '"http://api.geonames.org/"'
+            buildConfigField 'String', 'USER_NAME', "\"mkoppelman\""
+
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -119,6 +125,9 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-moshi:$retrofitVersion"
     implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofitVersion"
+
+    //Map
+    implementation "com.google.android.gms:play-services-maps:$googlePlayMapVersion"
 
     // Hilt
     implementation "com.google.dagger:hilt-android:$hiltVersion"

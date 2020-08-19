@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Earth quakes</string>
+    <string name="eqId">Eqid : </string>
+    <string name="date">Date : </string>
     <string name="latitude">Lat : </string>
     <string name="longitude">Long : </string>
     <string name="depth">Depth : </string>

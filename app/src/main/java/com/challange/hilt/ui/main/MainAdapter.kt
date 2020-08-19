@@ -60,10 +60,11 @@ class EarthQuakesUiModelViewHolder(
     fun bind(uiModel: EarthQuakesUiModel) {
         quakesUiModel = uiModel
         date?.text = uiModel.datetime
-        lat?.text = lat?.context?.getString(R.string.latitude) + uiModel.lat
-        lng?.text = lng?.context?.getString(R.string.longitude) + uiModel.lng
-        depth?.text = depth?.context?.getString(R.string.depth) + uiModel.depth
-        magnitude?.text = magnitude?.context?.getString(R.string.magnitude) + uiModel.magnitude
+        lat?.text = lat?.context?.getString(R.string.latitude) + " " + uiModel.lat
+        lng?.text = lng?.context?.getString(R.string.longitude) + " " + uiModel.lng
+        depth?.text = depth?.context?.getString(R.string.depth) + " " + uiModel.depth
+        magnitude?.text =
+            magnitude?.context?.getString(R.string.magnitude) + " " + uiModel.magnitude
         imageView?.setImageResource(if (uiModel.magnitude >= 8) R.drawable.ic_noun_earthquake_big_magnitudo else R.drawable.ic_noun_earthquake)
 
         itemContainer.setOnClickListener {

@@ -13,13 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.challange.hilt.util
+package com.challange.hilt.util.ext
 
 /**
  * Extension functions and Binding Adapters.
  */
 
 import android.view.View
+import com.challange.hilt.util.EspressoIdlingResource
 import com.google.android.material.snackbar.Snackbar
 
 /**

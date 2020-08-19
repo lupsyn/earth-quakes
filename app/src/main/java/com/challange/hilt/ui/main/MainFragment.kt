@@ -18,7 +18,7 @@ import com.challange.hilt.R
 import com.challange.hilt.ui.models.EarthQuakesUiModel
 import com.challange.hilt.ui.utils.ErrorState
 import com.challange.hilt.ui.utils.TransientUIState
-import com.challange.hilt.util.init
+import com.challange.hilt.util.ext.init
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.main_fragment.*
 
@@ -113,9 +113,9 @@ class MainFragment : Fragment(), EarthQuakesUiModelListener {
         )
     }
 
-    override fun onClick(item: EarthQuakesUiModel) {
+    override fun onClick(earthQuake: EarthQuakesUiModel) {
         val navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment)
-        navController.navigate(R.id.detail_fragment_dest, bundleOf(Pair("item", item)))
+        navController.navigate(R.id.detail_fragment_dest, bundleOf(Pair("quake", earthQuake)))
     }
 
     override fun onDestroyView() {
