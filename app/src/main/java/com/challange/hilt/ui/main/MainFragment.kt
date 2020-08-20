@@ -57,6 +57,8 @@ class MainFragment : Fragment(), EarthQuakesUiModelListener {
         viewModel.uiState.observe(
             viewLifecycleOwner,
             Observer<TransientUIState> { uiState: TransientUIState ->
+                showSwipeToRefresh(false)
+
                 when (uiState) {
                     TransientUIState.DisplayDataUIState -> {
                         showList(true)
@@ -83,6 +85,10 @@ class MainFragment : Fragment(), EarthQuakesUiModelListener {
             }
         )
         viewModel.fetchData()
+    }
+
+    private fun showSwipeToRefresh(show: Boolean) {
+        swipe_refresh_layout.isRefreshing = show
     }
 
     private fun showList(show: Boolean) {
@@ -113,6 +119,7 @@ class MainFragment : Fragment(), EarthQuakesUiModelListener {
             }
         )
         swipe_refresh_layout.setOnRefreshListener {
+            showSwipeToRefresh(true)
             viewModel.fetchData()
         }
     }

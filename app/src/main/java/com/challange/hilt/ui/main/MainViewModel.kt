@@ -37,7 +37,7 @@ class MainViewModel @ViewModelInject constructor
                 west = 55.2
             ).let { result ->
                 if (result is Success<List<EarthQuakesUiModel>>) {
-                    earthQuakesLiveData.value = result.data
+                    earthQuakesLiveData.value = result.data.sortedBy { it.eqid }
                     uiStateLiveData.value = TransientUIState.DisplayDataUIState
 
                 } else if (result is Result.Error) {

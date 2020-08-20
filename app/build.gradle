@@ -140,6 +140,8 @@ dependencies {
     kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hiltVersion"
     kaptAndroidTest "androidx.hilt:hilt-compiler:$hiltAndroidXVersion"
 
+    implementation "com.facebook.stetho:stetho:$stethoVersion"
+
     // Dependencies for local unit tests
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"

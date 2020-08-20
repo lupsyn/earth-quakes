@@ -45,6 +45,7 @@ buildscript {
         retrofitVersion = '2.9.0'
         okHttpVersion = '4.7.2'
         googlePlayMapVersion = '17.0.0'
+        stethoVersion = '1.5.1'
     }
 
 

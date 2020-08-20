@@ -15,10 +15,10 @@ data class EarchQuakeResponseCacheEntity(
     val requestDataHash: Int,
 
     @ColumnInfo(name = TIMESTAMP)
-    val timestamp: Double
+    val timestamp: Long
 ) {
     @Ignore
-    constructor() : this(0, 0f.toDouble())
+    constructor() : this(0, 0L)
 
     companion object {
         const val REQUEST_HASH = "requestDataHash"
