@@ -74,7 +74,7 @@ class EarthQuakesUiModelViewHolder(
 }
 
 interface EarthQuakesUiModelListener {
-    fun onClick(item: EarthQuakesUiModel)
+    fun onClick(earthQuake: EarthQuakesUiModel)
 }
 
 private class DiffCallback : DiffUtil.ItemCallback<EarthQuakesUiModel>() {

@@ -7,6 +7,7 @@ import com.challange.hilt.data.MainRepository
 import com.challange.hilt.data.MainRepositoryImpl
 import com.challange.hilt.data.db.AppDatabase
 import com.challange.hilt.data.db.dao.EarthQuakeDao
+import com.challange.hilt.data.db.dao.EarthQuakeResponseConfigDao
 import com.challange.hilt.data.network.Api
 import com.challange.hilt.data.network.ApiImpl
 import com.challange.hilt.data.network.ApiService
@@ -47,6 +48,10 @@ object DatabaseModule {
 
     @Provides
     fun provideEarthQuakeDao(database: AppDatabase): EarthQuakeDao = database.earthQuakeDao()
+
+    @Provides
+    fun provideEarthQuakeResponseConfigDao(database: AppDatabase): EarthQuakeResponseConfigDao =
+        database.earthQuakeResponseConfigDao()
 }
 
 @Module

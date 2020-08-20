@@ -87,6 +87,7 @@ class MainFragment : Fragment(), EarthQuakesUiModelListener {
 
     private fun showList(show: Boolean) {
         recyclerView.visibility = if (show) VISIBLE else GONE
+        swipe_refresh_layout.visibility = if (show) VISIBLE else GONE
     }
 
     private fun showLoading(show: Boolean) {
@@ -111,6 +112,9 @@ class MainFragment : Fragment(), EarthQuakesUiModelListener {
                 recyclerView.addItemDecoration(dividerItemDecoration)
             }
         )
+        swipe_refresh_layout.setOnRefreshListener {
+            viewModel.fetchData()
+        }
     }
 
     override fun onClick(earthQuake: EarthQuakesUiModel) {

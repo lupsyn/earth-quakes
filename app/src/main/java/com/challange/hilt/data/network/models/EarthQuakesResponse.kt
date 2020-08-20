@@ -5,7 +5,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class EarthQuakesResponse(
-    @Json(name = "earthquakes") val earthQuakes: List<EarthQuake>
+    @Json(name = "earthquakes") val earthquakes: List<EarthQuake>
 )
 
 @JsonClass(generateAdapter = true)

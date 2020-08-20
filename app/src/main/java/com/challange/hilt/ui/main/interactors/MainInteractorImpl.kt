@@ -29,7 +29,7 @@ class MainInteractorImpl @Inject constructor(
                 west = west
             )
             return when (response) {
-                is Success -> Success(response.data.earthQuakes.map { mapper.toUiModels(it) })
+                is Success -> Success(response.data.earthquakes.map { mapper.toUiModels(it) })
                 is Error -> Error(response.exception)
                 else -> Error(IllegalStateException("Invalid state"))
             }

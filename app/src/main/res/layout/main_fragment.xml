@@ -7,15 +7,22 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <androidx.core.widget.ContentLoadingProgressBar
         android:id="@+id/contentLoadingProgressBar"
@@ -36,6 +43,7 @@
         app:constraint_referenced_ids="imageErrorView,errorMessage,retryButton" />
 
     <ImageView
+        android:contentDescription="@string/imageErrorView"
         android:id="@+id/imageErrorView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -71,6 +79,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/errorMessage" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

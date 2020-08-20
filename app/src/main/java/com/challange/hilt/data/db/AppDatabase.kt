@@ -3,6 +3,7 @@ package com.challange.hilt.data.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.challange.hilt.data.db.dao.EarthQuakeDao
+import com.challange.hilt.data.db.dao.EarthQuakeResponseConfigDao
 import com.challange.hilt.data.db.models.EarchQuakeResponseCacheEntity
 import com.challange.hilt.data.db.models.EarthQuakeEntity
 
@@ -17,4 +18,5 @@ import com.challange.hilt.data.db.models.EarthQuakeEntity
 
 abstract class AppDatabase : RoomDatabase() {
     abstract fun earthQuakeDao(): EarthQuakeDao
+    abstract fun earthQuakeResponseConfigDao(): EarthQuakeResponseConfigDao
 }

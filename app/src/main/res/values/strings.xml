@@ -8,4 +8,5 @@
     <string name="magnitude">Magnitude : </string>
     <string name="error">"Ooops that's embarrassing, an error occurred please retry!"</string>
     <string name="retry">Retry</string>
+    <string name="imageErrorView">imageErrorView</string>
 </resources>
