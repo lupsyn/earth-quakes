@@ -17,6 +17,8 @@ interface EarthQuakeResponseConfigDao {
         const val DELETE_EXPIRED_ENTRIES =
             "DELETE FROM $EARTH_QUAKE_RESPONSE_TABLE_NAME" +
                     " WHERE ${EarchQuakeResponseCacheEntity.TIMESTAMP} < :expiredTimestampRange "
+
+        const val DELETE_ALL = "DELETE FROM $EARTH_QUAKE_RESPONSE_TABLE_NAME"
     }
 
     @Query(value = SELECT_ALL_BY_DEFAULT_REQUEST)
@@ -27,4 +29,7 @@ interface EarthQuakeResponseConfigDao {
 
     @Query(value = DELETE_EXPIRED_ENTRIES)
     suspend fun deleteExpiredEntries(expiredTimestampRange: Long)
+
+    @Query(value = DELETE_ALL)
+    suspend fun clearAll()
 }

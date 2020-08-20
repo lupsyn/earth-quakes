@@ -26,7 +26,7 @@ class MainViewModel @ViewModelInject constructor
     val uiState: LiveData<TransientUIState>
         get() = uiStateLiveData
 
-    fun fetchData() {
+    fun fetchData(toForceRefresh: Boolean = false) {
         viewModelScope.launch {
             uiStateLiveData.value = TransientUIState.LoadingUIState
             interactor.getEarthQuakes(
@@ -34,7 +34,8 @@ class MainViewModel @ViewModelInject constructor
                 north = 44.1,
                 south = -9.9,
                 east = -22.4,
-                west = 55.2
+                west = 55.2,
+                toForceRefresh = toForceRefresh
             ).let { result ->
                 if (result is Success<List<EarthQuakesUiModel>>) {
                     earthQuakesLiveData.value = result.data.sortedBy { it.eqid }

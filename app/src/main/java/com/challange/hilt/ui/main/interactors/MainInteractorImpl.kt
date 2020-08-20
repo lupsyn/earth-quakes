@@ -18,7 +18,8 @@ class MainInteractorImpl @Inject constructor(
         north: Double,
         south: Double,
         east: Double,
-        west: Double
+        west: Double,
+        toForceRefresh: Boolean
     ): Result<List<EarthQuakesUiModel>> {
         wrapEspressoIdlingResource {
             val response = mainRepository.getEarthQuakes(
@@ -26,7 +27,8 @@ class MainInteractorImpl @Inject constructor(
                 north = north,
                 east = east,
                 south = south,
-                west = west
+                west = west,
+                toForceRefresh = toForceRefresh
             )
             return when (response) {
                 is Success -> Success(response.data.earthquakes.map { mapper.toUiModels(it) })

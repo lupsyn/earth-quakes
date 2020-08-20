@@ -9,6 +9,7 @@ interface MainInteractor {
         north: Double,
         south: Double,
         east: Double,
-        west: Double
+        west: Double,
+        toForceRefresh: Boolean
     ): Result<List<EarthQuakesUiModel>>
 }

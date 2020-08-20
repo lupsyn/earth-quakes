@@ -120,7 +120,7 @@ class MainFragment : Fragment(), EarthQuakesUiModelListener {
         )
         swipe_refresh_layout.setOnRefreshListener {
             showSwipeToRefresh(true)
-            viewModel.fetchData()
+            viewModel.fetchData(true)
         }
     }
 

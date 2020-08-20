@@ -12,7 +12,8 @@ interface MainRepository {
         north: Double,
         south: Double,
         east: Double,
-        west: Double
+        west: Double,
+        toForceRefresh: Boolean
     ): Result<EarthQuakesResponse>
 
     suspend fun <T> getResult(call: suspend () -> Response<T>): Result<T> {

@@ -24,9 +24,14 @@ class MainRepositoryImpl @Inject constructor(
         north: Double,
         south: Double,
         east: Double,
-        west: Double
+        west: Double,
+        toForceRefresh: Boolean
     ): Result<EarthQuakesResponse> {
         val hashCode = (formatted.toString() + north + south + east + west).hashCode()
+
+        if (toForceRefresh) {
+            earthQuakesResponseDao.clearAll()
+        }
 
         val dbResponse = earthQuakeDao.validResultCardEntities(
             earthQuakesResponseDao,
