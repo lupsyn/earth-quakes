@@ -7,7 +7,7 @@ import timber.log.Timber
 import timber.log.Timber.DebugTree
 
 @HiltAndroidApp
-class HiltPlaygroundApplication : Application() {
+open class HiltPlaygroundApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
