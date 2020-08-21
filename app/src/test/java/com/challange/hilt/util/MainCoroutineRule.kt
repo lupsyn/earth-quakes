@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.challange.hilt
+package com.challange.hilt.util
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
