@@ -12,6 +12,7 @@
     </debug-overrides>
     <domain-config cleartextTrafficPermitted="true">
         <!-- Allow the HTTP traffic from MockWebServer on Android P devices -->
+        <domain includeSubdomains="true">127.0.0.1</domain>
         <domain includeSubdomains="true">localhost</domain>
         <domain includeSubdomains="true">api.geonames.org</domain>
     </domain-config>

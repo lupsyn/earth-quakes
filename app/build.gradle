@@ -20,6 +20,8 @@ android {
                 arguments += ["room.incremental": "true"]
             }
         }
+
+        testInstrumentationRunner "com.challange.hilt.base.TestInstrumentationRunner"
     }
 
     android {
@@ -37,7 +39,6 @@ android {
     buildTypes {
         debug {
             manifestPlaceholders = [google_map_key: "AIzaSyDPKBuS_gWSsHILIpOksSKwwsO_YXB8EnM"]
-            buildConfigField "String", 'BASE_URL', '"http://api.geonames.org/"'
             buildConfigField 'String', 'USER_NAME', "\"mkoppelman\""
 
             minifyEnabled false
@@ -48,7 +49,6 @@ android {
 
         release {
             manifestPlaceholders = [google_map_key: "AIzaSyDPKBuS_gWSsHILIpOksSKwwsO_YXB8EnM"]
-            buildConfigField "String", 'BASE_URL', '"http://api.geonames.org/"'
             buildConfigField 'String', 'USER_NAME', "\"mkoppelman\""
 
             minifyEnabled true
@@ -57,6 +57,7 @@ android {
             testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
         }
     }
+
 
     // Always show the result of every unit test, even if it passes.
     testOptions.unitTests {
@@ -81,6 +82,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    packagingOptions {
+        exclude "**/attach_hotspot_windows.dll"
+        exclude "META-INF/licenses/**"
+        exclude "META-INF/AL2.0"
+        exclude "META-INF/LGPL2.1"
+    }
+
 }
 
 /*
@@ -182,6 +191,7 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
     androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
+    androidTestImplementation "com.squareup.okhttp3:mockwebserver:$mockWebServerVersion"
     implementation "androidx.test.espresso:espresso-idling-resource:$espressoVersion"
 
     // Resolve conflicts between main and test APK:
@@ -194,4 +204,11 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
+    androidTestImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion") {
+        // conflicts with mockito due to direct inclusion of byte buddy
+        exclude group: "org.jetbrains.kotlinx", module: "kotlinx-coroutines-debug"
+    }
+
+
 }

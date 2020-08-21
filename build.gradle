@@ -46,8 +46,8 @@ buildscript {
         okHttpVersion = '4.7.2'
         googlePlayMapVersion = '17.0.0'
         stethoVersion = '1.5.1'
+        mockWebServerVersion = '4.7.1'
     }
-
 
     repositories {
         google()
